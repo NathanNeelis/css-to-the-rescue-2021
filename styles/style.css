@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans Roman";
+    src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/85648/IBMPlexSansVar-Roman.ttf");
+}
+
+:root {
+    --green: #189100;
+    --white: #fff;
+    --gray: #ebebeb;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "IBM Plex Sans Roman", Times;
+}
+
+html {
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+
+body> :first-child {
+    /* RESOURCE https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135 */
+    width: min(60em, 90%);
+    margin: 0 auto;
+    padding: 2em;
+    position: relative;
+}
+
+body> :first-child p {
+    text-align: center;
+    color: var(--white);
+    font-size: clamp(2rem, 6vw, 6rem);
+    opacity: .3;
+    z-index: 1;
+    position: absolute;
+    top: 55%;
+    width: 100%;
+    margin: 0 auto;
+    left: 0%;
+    background-color: var(--green);
+
+}
+
+main {
+    overflow-y: scroll;
+    height: min(100vh - 10em, 39em);
+    /* height: calc(100vh - 12em); */
+    width: min(40em, 90%);
+    /* scroll-snap-type: y mandatory; */
+    /* scroll-behavior: smooth; */
+    margin: 1em auto;
+    background-color: var(--gray);
+    padding: 5%;
+    border-radius: 1em;
+}
+
+main::-webkit-scrollbar {
+    background: transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: .5em;
+}
+
+
+section {
+    /* width: min(40em, 100%); */
+    /* height: 100%; */
+    /* background-image: url(../img/old-paper2.jpg); */
+    background-color: lightcoral;
+    background-position: top-left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3em;
+    /* margin: 0 auto; */
+    scroll-snap-align: center;
+}
+
+h1 {
+    font-size: clamp(2rem, 8vw, 8rem);
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+h1 span:first-child {
+    margin: 0 .5em;
+}
+
+h1 span:nth-child(2) {
+    position: absolute;
+    left: 20%;
+    right: 40%;
+    color: var(--green);
+    font-weight: 100;
+    font-variation-settings: 'wght'100, 'wdth'85;
+    animation: breathe 4s infinite both;
+}
+
+/* RESOURCE: https://css-irl.info/variable-font-animation-with-css-and-splitting-js/ */
+
+
+@keyframes breathe {
+    0% {
+        font-variation-settings: 'wght'100, 'wdth'85;
+        font-size: 10vw;
+    }
+
+    60% {
+        font-variation-settings: 'wght'700, 'wdth'85;
+        font-size: 11vw;
+    }
+
+    100% {
+        font-variation-settings: 'wght'100, 'wdth'85;
+        font-size: 10vw;
+    }
+}

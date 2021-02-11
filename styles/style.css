@@ -132,13 +132,7 @@ main::-webkit-scrollbar-thumb {
     border-radius: .5em;
 }
 
-section {
-    background-color: var(--white);
-    padding: 3em;
-    z-index: 100;
-    box-shadow: .3em .7em 1.7em -.2em rgba(0, 0, 0, 0.44);
-    margin-bottom: 3em;
-}
+
 
 h1 {
     font-size: clamp(2rem, 8vw, 6rem);
@@ -183,13 +177,27 @@ h2:hover {
 }
 
 section {
+    background-color: var(--white);
+    padding: 1em;
+    /* box-shadow: .3em .7em 1.7em -.2em rgba(0, 0, 0, 0.44); */
+    box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57);
+    margin-bottom: 3em;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+    justify-self: center;
+    column-gap: 1em;
+    row-gap: 2em;
+
 }
 
 section header {
     margin-bottom: 1rem;
-    grid-column-end: span 2;
+    grid-column: 1 / -1;
+    /* Resource - responsive but keep the first item on 1 row: https://stackoverflow.com/questions/50447477/how-do-i-make-the-first-grid-item-span-100  */
+}
+
+section header:first-child {
+    margin-top: 1rem;
 }
 
 section header p {
@@ -203,9 +211,125 @@ section header p {
 }
 
 article {
-    background: yellow;
     border: 1px solid var(--green);
+    background: var(--white);
+    text-align: center;
+    position: relative;
 }
+
+article:hover {
+    /* background-color: yellow; */
+    animation-name: wiggle;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.250, 0.460, 0.455, 1.310);
+}
+
+article h3 {
+    color: var(--green);
+    padding: 1rem 1rem 0 1rem;
+}
+
+article p {
+    padding: .5rem 1rem 2rem 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+
+article div {
+    background: var(--green);
+    color: var(--white);
+    position: absolute;
+    bottom: -1rem;
+    left: calc(50% - 1.25rem);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: var(--font-heading);
+}
+
+article div::after {
+    background-color: var(--green);
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    content: "€";
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: var(--font-heading);
+    animation-name: breathe;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    transition: .5s;
+}
+
+article div:hover::after {
+    background-color: transparent;
+    content: "";
+    transition: .5s;
+}
+
+section article:nth-child(odd) div::after {
+    animation-delay: 1s;
+}
+
+section article:nth-child(even) div::after {
+    animation-delay: 2s;
+}
+
+/* CLIPPER  */
+.clipWrapper {
+    width: 12em;
+    height: 2em;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+.clip {
+    width: 12em;
+    height: 5em;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(118, 119, 121, 1)), color-stop(8%, rgba(153, 154, 158, 1)), color-stop(31%, rgba(233, 233, 225, 1)), color-stop(61%, rgba(175, 176, 180, 1)), color-stop(76%, rgba(145, 153, 156, 1)), color-stop(92%, rgba(87, 94, 88, 1)), color-stop(95%, rgba(145, 153, 156, 1)), color-stop(100%, rgba(175, 176, 180, 1)));
+    border-radius: 1em 1em 0 0;
+    margin: 0 auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.57);
+    z-index: 100;
+}
+
+.clip::before {
+    width: 5em;
+    height: 2.1em;
+    background: rgb(118, 119, 121);
+    position: absolute;
+    top: -40%;
+    left: calc(50% - 2.5em);
+    content: "";
+    border-radius: .5em .5em 0 0;
+    z-index: 5;
+}
+
+.clip::after {
+    width: 1em;
+    height: 1em;
+    background: white;
+    position: absolute;
+    top: -30%;
+    left: calc(50% - .5em);
+    content: "";
+    border-radius: 50%;
+    z-index: 7;
+}
+
+
 
 
 
@@ -232,5 +356,21 @@ article {
     100% {
         transform: scale(2.5);
         opacity: 1;
+    }
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0)
+    }
+
+    25% {
+        transform: rotate(2deg)
+    }
+
+    75% {
+        transform: rotate(-3deg)
     }
 }

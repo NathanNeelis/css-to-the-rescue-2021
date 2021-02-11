@@ -14,6 +14,8 @@
     src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/57225/Roboto-VF.woff2") format("woff2-variations");
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 /* Resource Roboto variable font https://codepen.io/electricgarden/pen/PooLxGJ  */
 
 
@@ -21,23 +23,72 @@
     --green: #189100;
     --white: #fff;
     --gray: #ebebeb;
-
+    --black: #333333;
     --border-width: calc(5% - 10px);
+
+    --font-heading: 'IBM Plex Sans Roman', Times;
+    --font-body: 'Catamaran', sans-serif;
 }
 
 h1,
 h2,
 h3 {
-    font-family: "IBM Plex Sans Roman", Times;
+    font-family: var(--font-heading);
 }
 
 html {
     overflow-x: hidden;
     font-size: 100%;
+    color: var(--black);
+    font-family: var(--font-body);
+    font-weight: 100;
 }
 
+a:first-child {
+    background-color: var(--green);
+    text-decoration: underline;
+    padding: 1rem 4rem 1rem 1rem;
+    color: white;
 
-body> :first-child {
+}
+
+/* ACCESSIBILITY  */
+.hidden,
+[href="#sweets"] {
+    clip: rect(0 0 0 0);
+    position: absolute;
+    top: -1em;
+    transition: .2s;
+}
+
+.hidden,
+[href="#sweets"]:focus {
+    clip: auto;
+    top: 0;
+}
+
+[href="#sweets"] span {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+
+[href="#sweets"]:focus span {
+    animation-name: grow;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-delay: .3s;
+    transform-origin: center center;
+    animation-fill-mode: forwards;
+    padding-left: .5rem;
+}
+
+/* END ACCESSIBILITY  */
+
+body> :nth-child(2) {
     /* RESOURCE https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135 */
     width: min(60rem, 90%);
     margin: 0 auto;
@@ -45,46 +96,31 @@ body> :first-child {
     position: relative;
 }
 
-body> :first-child p {
-    text-align: center;
-    color: var(--white);
-    font-size: clamp(2rem, 6vw, 4rem);
-    opacity: .3;
-    z-index: 1;
-    position: absolute;
-    top: 55%;
+body> :nth-child(2) p {
     width: 100%;
     margin: 0 auto;
-    left: 0%;
+    text-align: center;
+    font-size: clamp(1.6rem, 6vw, 4rem);
+    color: var(--white);
     background-color: var(--green);
-
+    opacity: .3;
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    z-index: 1;
 }
-
-/* div:nth-child(2) {
-    height: clamp(2em, 5vw, 4em);
-    background: var(--gray);
-    width: min(40em, 90%);
-    margin: 0 auto;
-    border-radius: 1em 1em 0 0;
-    margin-top: 1em;
-} */
-
 
 main {
     overflow-y: scroll;
     height: min(100vh - 10rem, 40rem);
     width: min(40em, 90%);
-    /* scroll-snap-type: y mandatory; */
     margin: 1rem auto;
     background-color: var(--gray);
     padding: 0 calc(5% - 10px) 0 5%;
     border-top: 3rem solid var(--gray);
     border-bottom: 3rem solid var(--gray);
-    /* border-left: 3em solid var(--gray);
-    border-right: 3em solid var(--gray); */
     border-radius: 1rem;
 }
-
 
 main::-webkit-scrollbar {
     background: transparent;
@@ -96,24 +132,13 @@ main::-webkit-scrollbar-thumb {
     border-radius: .5em;
 }
 
-
 section {
-    /* width: min(40em, 100%); */
-    /* height: min(100vh - 10em, 34em); */
-    /* background-image: url(../img/old-paper2.jpg); */
     background-color: var(--white);
-    /* background-position: top-left; */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
     padding: 3em;
-    /* scroll-snap-align: center; */
     z-index: 100;
     box-shadow: .3em .7em 1.7em -.2em rgba(0, 0, 0, 0.44);
     margin-bottom: 3em;
-
 }
-
-
 
 h1 {
     font-size: clamp(2rem, 8vw, 6rem);
@@ -157,6 +182,33 @@ h2:hover {
     transition: font-variation-settings 2s ease-in-out;
 }
 
+section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+section header {
+    margin-bottom: 1rem;
+    grid-column-end: span 2;
+}
+
+section header p {
+    background-color: var(--green);
+    color: var(--white);
+    padding: .5rem;
+    margin: .3rem;
+    font-style: italic;
+    text-align: center;
+    border-radius: .5em 0 .5em 0;
+}
+
+article {
+    background: yellow;
+    border: 1px solid var(--green);
+}
+
+
+
 @keyframes breathe {
     0% {
         font-variation-settings: 'wght'100, 'wdth'85;
@@ -168,5 +220,17 @@ h2:hover {
 
     100% {
         font-variation-settings: 'wght'100, 'wdth'85;
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 1;
     }
 }

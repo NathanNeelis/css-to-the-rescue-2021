@@ -179,6 +179,7 @@ h2:hover {
 section {
     background-color: var(--white);
     padding: 1em;
+    padding-bottom: 2em;
     /* box-shadow: .3em .7em 1.7em -.2em rgba(0, 0, 0, 0.44); */
     box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57);
     margin-bottom: 3em;
@@ -286,10 +287,9 @@ section article:nth-child(even) div::after {
 /* CLIPPER  */
 .clipWrapper {
     width: 12em;
-    height: 2em;
+    height: 3em;
     margin: 0 auto;
     position: relative;
-
 }
 
 .clip {
@@ -303,7 +303,26 @@ section article:nth-child(even) div::after {
     left: 0;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.57);
     z-index: 100;
+    transition: box-shadow 1s;
 }
+
+.clip:hover {
+    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.57);
+    transition: box-shadow 1s;
+}
+
+
+
+.clipWrapper:hover~main>section {
+    animation-name: falldown;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    animation-timing-function: cubic-bezier(0.250, 0.460, 0.455, 1.310);
+}
+
+
 
 .clip::before {
     width: 5em;
@@ -372,5 +391,23 @@ section article:nth-child(even) div::after {
 
     75% {
         transform: rotate(-3deg)
+    }
+}
+
+@keyframes falldown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(600vh);
+    }
+
+    60% {
+        transform: translateY(600vh);
+    }
+
+    90% {
+        transform: translateY(0);
     }
 }

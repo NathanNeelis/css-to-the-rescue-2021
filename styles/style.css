@@ -24,7 +24,7 @@
     --white: #fff;
     --gray: #ebebeb;
     --black: #333333;
-    --border-width: calc(5% - 10px);
+    /* --border-width: calc(5% - 10px); */
 
     --font-heading: 'IBM Plex Sans Roman', Times;
     --font-body: 'Catamaran', sans-serif;
@@ -88,6 +88,12 @@ a:first-child {
 
 /* END ACCESSIBILITY  */
 
+
+
+
+
+
+/* _____________________  Logo & first header  _____________________ */
 body> :nth-child(2) {
     /* RESOURCE https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135 */
     width: min(60rem, 90%);
@@ -109,30 +115,6 @@ body> :nth-child(2) p {
     left: 0%;
     z-index: 1;
 }
-
-main {
-    overflow-y: scroll;
-    height: min(100vh - 10rem, 40rem);
-    width: min(40em, 90%);
-    margin: 1rem auto;
-    background-color: var(--gray);
-    padding: 0 calc(5% - 10px) 0 5%;
-    border-top: 3rem solid var(--gray);
-    border-bottom: 3rem solid var(--gray);
-    border-radius: 1rem;
-}
-
-main::-webkit-scrollbar {
-    background: transparent;
-    width: 10px;
-}
-
-main::-webkit-scrollbar-thumb {
-    background: var(--green);
-    border-radius: .5em;
-}
-
-
 
 h1 {
     font-size: clamp(2rem, 8vw, 6rem);
@@ -160,6 +142,113 @@ h1 span:nth-child(2) {
 
 /* RESOURCE: https://css-irl.info/variable-font-animation-with-css-and-splitting-js/ */
 
+/* _____________________  END Logo & first header  _____________________ */
+
+
+
+
+/* _____________________  CLIPBOARD _____________________ */
+main {
+    overflow-y: hidden;
+    height: min(100vh - 10rem, 40rem);
+    width: min(40em, 90%);
+    margin: 1rem auto;
+    background-color: var(--gray);
+    padding: 0 calc(5% - 10px) 0 5%;
+    border-top: 2.5rem solid var(--gray);
+    border-bottom: 3rem solid var(--gray);
+    border-radius: 1rem;
+}
+
+main>div {
+    overflow-y: scroll;
+    background: var(--white);
+    /* background: coral; */
+    padding-bottom: 2em;
+    box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57);
+    height: 62vh;
+}
+
+main>div::-webkit-scrollbar {
+    background: var(--white);
+    width: 10px;
+}
+
+main>div::-webkit-scrollbar-thumb {
+    background: var(--green);
+    border-radius: .5em;
+}
+
+input[type=checkbox]:checked~main>div {
+    transform: translateY(calc(100% + 10em));
+    transition: transform .4s cubic-bezier(1, -0.11, .87, .73);
+    transition-delay: 1s;
+}
+
+input[type=checkbox]:not(:checked)~main>div {
+    transform: translateY(calc(0));
+    transition: transform .4s cubic-bezier(1, -0.11, .43, 1.21);
+    transition-delay: 1s;
+}
+
+input[type=checkbox] {
+    opacity: 0;
+}
+
+
+/*  CLIPPER  */
+body>div {
+    width: 12em;
+    height: 3em;
+    margin: 0 auto;
+    position: relative;
+}
+
+label:first-child {
+    width: 12em;
+    height: 5em;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(118, 119, 121, 1)), color-stop(8%, rgba(153, 154, 158, 1)), color-stop(31%, rgba(233, 233, 225, 1)), color-stop(61%, rgba(175, 176, 180, 1)), color-stop(76%, rgba(145, 153, 156, 1)), color-stop(92%, rgba(87, 94, 88, 1)), color-stop(95%, rgba(145, 153, 156, 1)), color-stop(100%, rgba(175, 176, 180, 1)));
+    border-radius: 1em 1em 0 0;
+    margin: 0 auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.57);
+    z-index: 100;
+    transition: box-shadow 1s;
+}
+
+label:first-child:hover {
+    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.57);
+    transition: box-shadow 1s;
+}
+
+.clip::before {
+    width: 5em;
+    height: 2.1em;
+    background: rgb(118, 119, 121);
+    position: absolute;
+    top: -40%;
+    left: calc(50% - 2.5em);
+    content: "";
+    border-radius: .5em .5em 0 0;
+    z-index: 5;
+}
+
+.clip::after {
+    width: 1em;
+    height: 1em;
+    background: white;
+    position: absolute;
+    top: -30%;
+    left: calc(50% - .5em);
+    content: "";
+    border-radius: 50%;
+    z-index: 7;
+}
+
+/* END CLIPPER  */
+
 
 h2 {
     font-family: "Roboto VF", sans-serif;
@@ -180,8 +269,7 @@ section {
     background-color: var(--white);
     padding: 1em;
     padding-bottom: 2em;
-    /* box-shadow: .3em .7em 1.7em -.2em rgba(0, 0, 0, 0.44); */
-    box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57);
+    /* box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57); */
     margin-bottom: 3em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
@@ -284,73 +372,12 @@ section article:nth-child(even) div::after {
     animation-delay: 2s;
 }
 
-/* CLIPPER  */
-.clipWrapper {
-    width: 12em;
-    height: 3em;
-    margin: 0 auto;
-    position: relative;
-}
-
-.clip {
-    width: 12em;
-    height: 5em;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(118, 119, 121, 1)), color-stop(8%, rgba(153, 154, 158, 1)), color-stop(31%, rgba(233, 233, 225, 1)), color-stop(61%, rgba(175, 176, 180, 1)), color-stop(76%, rgba(145, 153, 156, 1)), color-stop(92%, rgba(87, 94, 88, 1)), color-stop(95%, rgba(145, 153, 156, 1)), color-stop(100%, rgba(175, 176, 180, 1)));
-    border-radius: 1em 1em 0 0;
-    margin: 0 auto;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.57);
-    z-index: 100;
-    transition: box-shadow 1s;
-}
-
-.clip:hover {
-    box-shadow: 0px 10px 18px 0px rgba(0, 0, 0, 0.57);
-    transition: box-shadow 1s;
-}
-
-
-
-.clipWrapper:hover~main>section {
-    animation-name: falldown;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-delay: 1s;
-    animation-timing-function: cubic-bezier(0.250, 0.460, 0.455, 1.310);
-}
-
-
-
-.clip::before {
-    width: 5em;
-    height: 2.1em;
-    background: rgb(118, 119, 121);
-    position: absolute;
-    top: -40%;
-    left: calc(50% - 2.5em);
-    content: "";
-    border-radius: .5em .5em 0 0;
-    z-index: 5;
-}
-
-.clip::after {
-    width: 1em;
-    height: 1em;
-    background: white;
-    position: absolute;
-    top: -30%;
-    left: calc(50% - .5em);
-    content: "";
-    border-radius: 50%;
-    z-index: 7;
-}
 
 
 
 
+
+/* _____________________  ANIMATIONS  _____________________ */
 
 @keyframes breathe {
     0% {
@@ -394,20 +421,30 @@ section article:nth-child(even) div::after {
     }
 }
 
-@keyframes falldown {
+/* @keyframes falldown {
     0% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(600vh);
+        transform: translateY(100vh);
     }
 
     60% {
-        transform: translateY(600vh);
+        transform: translateY(100vh);
     }
 
     90% {
         transform: translateY(0);
+    }
+} */
+
+@keyframes falldown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(calc(100% + 10em));
     }
 }

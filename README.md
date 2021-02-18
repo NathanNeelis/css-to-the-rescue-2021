@@ -42,6 +42,7 @@ Interaction storyboard clipboard menu
 ### Experimenten with tecniques
 #### Variable fonts
 I learned of the existence of variable fonts and started experimenten with it in the logo of the restaurant. As you can see in the image below, the "&" character becomes thinner and fatter smoothly.  
+  
 ![CSS_Variable-fonts](https://user-images.githubusercontent.com/55492381/108343600-6c616c80-71dc-11eb-838e-1d7bd140d965.gif)  
 
 <details>
@@ -88,6 +89,7 @@ h1 span:nth-child(2) {
 
 #### Accessibility
 In the thema session about accesssibility I learned of the 'skip to content' button. But as Vasilis said, it can be that the person, trying to use this technique does not understand the term 'content'. In my menu I gave this button a humoristic spin, you can skip all of the menu and skip right to the desserts!  
+  
 ![CSS_Accessibility](https://user-images.githubusercontent.com/55492381/108343895-c6fac880-71dc-11eb-9f32-2fcabd29dc94.gif)  
 
 <details>
@@ -139,6 +141,7 @@ In the thema session about accesssibility I learned of the 'skip to content' but
 #### Animation - part 1
 When hovering over the clip from the clipboard, you loose your menu card. Woops! 
 In an animation the paper slides off-screen. This is the first part of the animation that I got working. What I'm still planning on doing is that the menu doenst come back at all, and that you will see a figure, a waiter, that asks if you would like a new menu. After accepting, the menu appears again.  
+  
 ![CSS_Falling-Paper-animation](https://user-images.githubusercontent.com/55492381/108344228-2ce75000-71dd-11eb-8328-dbaf521bbb37.gif)  
 
 <details>
@@ -188,7 +191,8 @@ In an animation the paper slides off-screen. This is the first part of the anima
 </details>
 
 #### Some other interaction
-At the end of the week, I added some simple interaction to the menu's. This is what it looks like. But have in mind, this still needs an update to make it more exciting.
+At the end of the week, I added some simple interaction to the menu's. This is what it looks like. But have in mind, this still needs an update to make it more exciting.  
+  
 ![CSS_Hover-effects](https://user-images.githubusercontent.com/55492381/108344362-57d1a400-71dd-11eb-8ee9-76c67e35556c.gif)  
 
 <details>

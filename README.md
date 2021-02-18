@@ -173,4 +173,11 @@ At the end of the week, I added some simple interaction to the menu's. This is w
 
 
 
-## afronding
+## To do
+* Dark theme
+* Waiter asking if you would like the menu back
+* Change animation of dropping the paper. Needs checkbox!
+* Menu's need to be more interesting. Maybe pin and change animation abit?
+* See if we can get scroll-snap to work?
+* Link atributes to menu headings to you can tab through?
+* Focus within to change the menu item?

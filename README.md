@@ -370,8 +370,9 @@ section header {
 
 
 ## To do
-* Dark theme
-* Waiter asking if you would like the menu back
+* Dark theme -- FIXED
+* Blockquotes styling
+* Waiter asking if you would like the menu back -- FIXED
 * Change animation of dropping the paper. Needs checkbox! -- FIXED
 * Menu's need to be more interesting. Maybe pin and change animation abit?
 * See if we can get scroll-snap to work?

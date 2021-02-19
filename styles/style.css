@@ -26,6 +26,7 @@
     --white: #fff;
     --gray: #ebebeb;
     --black: #333333;
+    --midgray: #666666;
     /* --border-width: calc(5% - 10px); */
 
     --font-heading: 'IBM Plex Sans Roman', Times;
@@ -44,13 +45,15 @@ html {
     color: var(--black);
     font-family: var(--font-body);
     font-weight: 100;
+    background: var(--white);
 }
+
 
 a:first-child {
     background-color: var(--green);
     text-decoration: underline;
     padding: 1rem 4rem 1rem 1rem;
-    color: white;
+    color: var(--white);
 
 }
 
@@ -99,6 +102,10 @@ a:first-child {
 body>header {
     /* RESOURCE https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135 */
     width: min(60rem, 90%);
+    height: 100vh;
+    /* background-color: coral; */
+    display: flex;
+    align-items: center;
     margin: 0 auto;
     padding: 2rem;
     position: relative;
@@ -107,24 +114,25 @@ body>header {
 body>header p {
     width: 100%;
     margin: 0 auto;
+    padding-bottom: .5rem;
     text-align: center;
     font-size: clamp(1.6rem, 6vw, 4rem);
     color: var(--white);
     background-color: var(--green);
-    opacity: .3;
     position: absolute;
     top: 55%;
     left: 0%;
-    z-index: 1;
 }
 
 h1 {
+    width: 100vw;
     font-size: clamp(2rem, 8vw, 6rem);
     text-align: center;
     z-index: 2;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    position: relative;
 
 }
 
@@ -153,7 +161,8 @@ h1 span:nth-child(2) {
 /* BODY CLIPBOARD  */
 main {
     overflow-y: hidden;
-    height: min(100vh - 10rem, 40rem);
+    height: min(80vh, 60rem);
+    /* height: 80vh; */
     width: min(40em, 90%);
     margin: 1rem auto;
     background-color: var(--gray);
@@ -161,6 +170,8 @@ main {
     border-top: 2.5rem solid var(--gray);
     border-bottom: 2rem solid var(--gray);
     border-radius: 1rem;
+    z-index: 5;
+    position: relative;
 
 }
 
@@ -170,7 +181,8 @@ main>div {
     background: var(--white);
     padding-bottom: 2em;
     box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57);
-    height: 62vh;
+    height: min(80vh, 60rem);
+    z-index: 20;
 }
 
 main>div::-webkit-scrollbar {
@@ -195,7 +207,7 @@ input[type=checkbox]:checked~main>div {
 input[type=checkbox]:not(:checked)~main>div {
     transform: translateY(calc(0));
     transition: transform .4s cubic-bezier(1, -0.11, .43, 1.21);
-    transition-delay: 1s;
+    transition-delay: 1.5s;
 }
 
 /* Resource Cubic brezier: https://cubic-bezier.com/#1,-0.11,.43,1.21  */
@@ -212,19 +224,26 @@ input[type=checkbox] {
 /* 👨🏻‍🍳  */
 body>div:nth-of-type(2) {
     width: 15em;
+    height: 100vh;
     position: absolute;
-    top: 50%;
+    top: calc(50% + 50vh);
     left: calc(50% - 7.5em);
     margin: 0 auto;
-    z-index: 100;
+    z-index: 10;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
     text-align: center;
     opacity: 0;
     transition: opacity 1s ease-out;
     transition-delay: .5s;
 }
 
+/* CHECKBOX UNCHECKED, WAITER RUNS TO GET MENU  */
 body>div:nth-of-type(2) span {
     display: block;
     font-size: 3em;
@@ -254,6 +273,8 @@ input[type=checkbox]:checked~div:nth-of-type(2) {
     opacity: 1;
     transition: opacity .5s ease-in;
     transition-delay: 5s;
+    /* transition: z-index 5s ease-in; */
+    z-index: 10;
 }
 
 /* checked  appear waiter*/
@@ -305,7 +326,7 @@ label:first-child:hover {
 .clip::after {
     width: 1em;
     height: 1em;
-    background: white;
+    background: var(--white);
     position: absolute;
     top: -30%;
     left: calc(50% - .5em);
@@ -317,6 +338,7 @@ label:first-child:hover {
 /* END CLIPPER  */
 
 
+/* MENU HEADINGS EXAMPLE; NOSHES  */
 h2 {
     font-family: "Roboto VF", sans-serif;
     text-align: center;
@@ -324,6 +346,7 @@ h2 {
     color: var(--green);
     font-variation-settings: 'wght'100, 'wdth'185;
     transition: font-variation-settings 2s ease-in-out;
+    margin-top: 1rem;
 
 }
 
@@ -332,11 +355,11 @@ h2:hover {
     transition: font-variation-settings 2s ease-in-out;
 }
 
+/* MENU PAGES  */
 section {
     background-color: var(--white);
     padding: 1em;
     padding-bottom: 2em;
-    /* box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57); */
     margin-bottom: 3em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
@@ -346,16 +369,14 @@ section {
 
 }
 
+/* MENU HEADER EXAMPLE; NOSHES */
 section header {
     margin-bottom: 1rem;
     grid-column: 1 / -1;
     /* Resource - responsive but keep the first item on 1 row: https://stackoverflow.com/questions/50447477/how-do-i-make-the-first-grid-item-span-100  */
 }
 
-section header:first-child {
-    margin-top: 1rem;
-}
-
+/* MENU HEADER EXPLAINING THE HEADER EXAMPLE; SMALL DISHES  */
 section header p {
     background-color: var(--green);
     color: var(--white);
@@ -366,6 +387,7 @@ section header p {
     border-radius: .5em 0 .5em 0;
 }
 
+/* MENU DISHES  */
 article {
     border: 1px solid var(--green);
     background: var(--white);
@@ -378,20 +400,24 @@ article:hover {
     animation-name: wiggle;
     animation-duration: .5s;
     animation-iteration-count: 1;
+    transform-origin: top center;
     animation-timing-function: cubic-bezier(0.250, 0.460, 0.455, 1.310);
 }
 
+/* MENU DISH HEADER  */
 article h3 {
     color: var(--green);
     padding: 1rem 1rem 0 1rem;
 }
 
+/* MENU DISH CONTENT  */
 article p {
     padding: .5rem 1rem 2rem 1rem;
     font-size: 1.1rem;
     line-height: 1.5rem;
 }
 
+/* PRICING  */
 article div {
     background: var(--green);
     color: var(--white);
@@ -488,24 +514,6 @@ section article:nth-child(even) div::after {
     }
 }
 
-/* @keyframes falldown {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(100vh);
-    }
-
-    60% {
-        transform: translateY(100vh);
-    }
-
-    90% {
-        transform: translateY(0);
-    }
-} */
-
 @keyframes falldown {
     0% {
         transform: translateY(0);
@@ -514,4 +522,51 @@ section article:nth-child(even) div::after {
     100% {
         transform: translateY(calc(100% + 10em));
     }
+}
+
+
+
+/* DARK MODE  */
+@media screen and (prefers-color-scheme: dark) {
+
+    /* BACKGROUND TO DARK LOGO TO LIGHT  */
+
+    :root {
+        --white: #333333;
+        --black: #fff;
+        --gray: black;
+    }
+
+
+    body>header p {
+        --white: #fff;
+        --black: #333333;
+        color: var(--white);
+        background-color: var(--black);
+        border: 1px solid var(--white);
+    }
+
+
+    a:first-child {
+        --white: #fff;
+        background-color: var(--white);
+        color: var(--green);
+    }
+
+    main>div,
+    main>div::-webkit-scrollbar,
+    section,
+    article {
+        background: var(--midgray);
+    }
+
+    h2,
+    article h3 {
+        --white: #fff;
+        color: var(--white);
+    }
+
+
+
+
 }

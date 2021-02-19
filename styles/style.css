@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/* Resource selectors: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors  */
+
 @font-face {
     font-family: "IBM Plex Sans Roman";
     src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/85648/IBMPlexSansVar-Roman.ttf");
@@ -94,7 +96,7 @@ a:first-child {
 
 
 /* _____________________  Logo & first header  _____________________ */
-body> :nth-child(2) {
+body>header {
     /* RESOURCE https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135 */
     width: min(60rem, 90%);
     margin: 0 auto;
@@ -102,7 +104,7 @@ body> :nth-child(2) {
     position: relative;
 }
 
-body> :nth-child(2) p {
+body>header p {
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -148,6 +150,7 @@ h1 span:nth-child(2) {
 
 
 /* _____________________  CLIPBOARD _____________________ */
+/* BODY CLIPBOARD  */
 main {
     overflow-y: hidden;
     height: min(100vh - 10rem, 40rem);
@@ -156,14 +159,15 @@ main {
     background-color: var(--gray);
     padding: 0 calc(5% - 10px) 0 5%;
     border-top: 2.5rem solid var(--gray);
-    border-bottom: 3rem solid var(--gray);
+    border-bottom: 2rem solid var(--gray);
     border-radius: 1rem;
+
 }
 
+/* PAPER CLIPBOARD  */
 main>div {
     overflow-y: scroll;
     background: var(--white);
-    /* background: coral; */
     padding-bottom: 2em;
     box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57);
     height: 62vh;
@@ -179,11 +183,14 @@ main>div::-webkit-scrollbar-thumb {
     border-radius: .5em;
 }
 
+/* DROPPING PAPER ANIMATION  */
 input[type=checkbox]:checked~main>div {
     transform: translateY(calc(100% + 10em));
     transition: transform .4s cubic-bezier(1, -0.11, .87, .73);
     transition-delay: 1s;
 }
+
+/* Resource Chrome browsers error blurry text: https://stackoverflow.com/questions/32034574/font-looks-blurry-after-translate-in-chrome  */
 
 input[type=checkbox]:not(:checked)~main>div {
     transform: translateY(calc(0));
@@ -191,8 +198,57 @@ input[type=checkbox]:not(:checked)~main>div {
     transition-delay: 1s;
 }
 
+/* Resource Cubic brezier: https://cubic-bezier.com/#1,-0.11,.43,1.21  */
+/* resource: https://stackoverflow.com/questions/19684204/uncheck-checkbox-css3-animation/19684432  */
+/* Resource: https://css-tricks.com/almanac/selectors/c/checked/  */
+
+
 input[type=checkbox] {
     opacity: 0;
+}
+
+
+/* WAITER ASKING MENU CARD  */
+/* 👨🏻‍🍳  */
+body>div:nth-of-type(2) {
+    width: 15em;
+    /* background-color: yellow; */
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 7.5em);
+    margin: 0 auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    opacity: 0;
+}
+
+body>div:nth-of-type(2) span {
+    font-size: 3em;
+}
+
+body>div:nth-of-type(2) label {
+    margin: 1rem;
+    padding: 1rem;
+    background: var(--green);
+    border-radius: .5rem;
+    color: var(--white);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.57);
+    transition: all .5s ease-in-out;
+}
+
+body>div:nth-of-type(2) label:hover {
+    background: var(--white);
+    color: var(--green);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.57);
+    transition: all .5s ease-in-out;
+}
+
+input[type=checkbox]:checked~div:nth-of-type(2) {
+    opacity: 1;
+    transition: all .5s ease-in;
+    transition-delay: 5s;
 }
 
 

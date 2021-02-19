@@ -102,13 +102,23 @@ a:first-child {
 body>header {
     /* RESOURCE https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135 */
     width: min(60rem, 90%);
-    height: 100vh;
+    height: 80vh;
     /* background-color: coral; */
     display: flex;
     align-items: center;
     margin: 0 auto;
     padding: 2rem;
     position: relative;
+
+}
+
+body>header>div {
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 80vh;
+    clip-path: polygon(50% 0%, 38% 14%, 21% 0%, 1% 14%, 0% 27%, 22% 30%, 33% 42%, 44% 39%, 46% 21%, 61% 14%, 74% 30%, 71% 48%, 50% 57%, 31% 53%, 15% 51%, 6% 65%, 19% 85%, 36% 74%, 57% 67%, 76% 56%, 88% 28%, 88% 8%, 96% 26%, 92% 58%, 87% 76%, 71% 94%, 49% 93%, 37% 82%);
+    background-color: transparant;
 }
 
 body>header p {
@@ -224,12 +234,14 @@ input[type=checkbox] {
 /* 👨🏻‍🍳  */
 body>div:nth-of-type(2) {
     width: 15em;
-    height: 100vh;
+    height: 80vh;
     position: absolute;
-    top: calc(50% + 50vh);
+    top: calc(50% + 40vh);
     left: calc(50% - 7.5em);
     margin: 0 auto;
     z-index: 10;
+
+    /* background: yellow; */
 
     display: flex;
     flex-direction: column;
@@ -566,7 +578,9 @@ section article:nth-child(even) div::after {
         color: var(--white);
     }
 
-
-
-
+    body>header>div {
+        background-color: var(--green);
+    }
 }
+
+/* Resource https://charlesrt.uk/blog/the-dark-web-rises/  */

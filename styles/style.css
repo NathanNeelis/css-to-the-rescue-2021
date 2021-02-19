@@ -212,7 +212,6 @@ input[type=checkbox] {
 /* 👨🏻‍🍳  */
 body>div:nth-of-type(2) {
     width: 15em;
-    /* background-color: yellow; */
     position: absolute;
     top: 50%;
     left: calc(50% - 7.5em);
@@ -222,10 +221,16 @@ body>div:nth-of-type(2) {
     flex-direction: column;
     text-align: center;
     opacity: 0;
+    transition: opacity 1s ease-out;
+    transition-delay: .5s;
 }
 
 body>div:nth-of-type(2) span {
+    display: block;
     font-size: 3em;
+    transform: translateX(70vw);
+    transition: transform 1.5s cubic-bezier(.12, -0.46, .43, 1.41);
+    transition-delay: .5s;
 }
 
 body>div:nth-of-type(2) label {
@@ -247,10 +252,16 @@ body>div:nth-of-type(2) label:hover {
 
 input[type=checkbox]:checked~div:nth-of-type(2) {
     opacity: 1;
-    transition: all .5s ease-in;
+    transition: opacity .5s ease-in;
     transition-delay: 5s;
 }
 
+/* checked  appear waiter*/
+input[type=checkbox]:checked~div:nth-of-type(2) span {
+    transform: translateX(0);
+    transition: transform 1.5s cubic-bezier(.12, -0.46, .43, 1.41);
+    transition-delay: 5s;
+}
 
 /*  CLIPPER  */
 body>div {

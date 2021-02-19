@@ -192,6 +192,7 @@ main>div {
     padding-bottom: 2em;
     box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.57);
     height: min(80vh, 60rem);
+    position: relative;
     z-index: 20;
 }
 
@@ -210,6 +211,7 @@ input[type=checkbox]:checked~main>div {
     transform: translateY(calc(100% + 10em));
     transition: transform .4s cubic-bezier(1, -0.11, .87, .73);
     transition-delay: 1s;
+
 }
 
 /* Resource Chrome browsers error blurry text: https://stackoverflow.com/questions/32034574/font-looks-blurry-after-translate-in-chrome  */
@@ -234,12 +236,12 @@ input[type=checkbox] {
 /* 👨🏻‍🍳  */
 body>div:nth-of-type(2) {
     width: 15em;
-    height: 80vh;
+    height: 10em;
     position: absolute;
-    top: calc(50% + 40vh);
+    top: calc(50% + 90vh);
     left: calc(50% - 7.5em);
     margin: 0 auto;
-    z-index: 10;
+    z-index: 7;
 
     /* background: yellow; */
 
@@ -251,6 +253,7 @@ body>div:nth-of-type(2) {
 
     text-align: center;
     opacity: 0;
+    /* display: none; */
     transition: opacity 1s ease-out;
     transition-delay: .5s;
 }
@@ -282,11 +285,17 @@ body>div:nth-of-type(2) label:hover {
 }
 
 input[type=checkbox]:checked~div:nth-of-type(2) {
+    display: flex;
     opacity: 1;
     transition: opacity .5s ease-in;
     transition-delay: 5s;
     /* transition: z-index 5s ease-in; */
     z-index: 10;
+}
+
+input[type=checkbox]:checked~main>div {
+    /* z-index: 7; */
+    background: coral;
 }
 
 /* checked  appear waiter*/
@@ -378,7 +387,6 @@ section {
     justify-self: center;
     column-gap: 1em;
     row-gap: 2em;
-
 }
 
 /* MENU HEADER EXAMPLE; NOSHES */

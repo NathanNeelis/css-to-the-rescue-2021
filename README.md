@@ -1,5 +1,20 @@
 <!-- livelink  -->
+### View the menu
+:earth_americas:  [live website](https://nathanneelis.github.io/css-to-the-rescue-2021/)
 
+### Table of contents
+[The plan](https://github.com/NathanNeelis/css-to-the-rescue-2021#the-plan)  
+> [Assignment](https://github.com/NathanNeelis/css-to-the-rescue-2021#assignment)
+> [Interesting techniques](https://github.com/NathanNeelis/css-to-the-rescue-2021#the-following-list-are-techniques-i-would-like-to-get-a-closer-look-at)  
+> [Requirement](https://github.com/NathanNeelis/css-to-the-rescue-2021#requirements)  
+  
+[Progress](https://github.com/NathanNeelis/css-to-the-rescue-2021#progress)  
+> [Inspiration](https://github.com/NathanNeelis/css-to-the-rescue-2021#inpsiration)  
+> [Initial idea](https://github.com/NathanNeelis/css-to-the-rescue-2021#initial-idea)  
+> [Experimenting with tecniques](https://github.com/NathanNeelis/css-to-the-rescue-2021#experimenting-with-techniques)  
+  
+[Resources](https://github.com/NathanNeelis/css-to-the-rescue-2021#resources)  
+[To do](https://github.com/NathanNeelis/css-to-the-rescue-2021#to-do)  
 
 ## The plan
 ### Assignment
@@ -39,7 +54,7 @@ Interaction storyboard clipboard menu
 ![Clipboard storyboard](https://user-images.githubusercontent.com/55492381/108342217-d6791200-71da-11eb-80f5-348e98c8dafc.JPG)
 
 
-### Experimenten with tecniques
+### Experimenting with techniques
 #### Variable fonts
 I learned of the existence of variable fonts and started experimenten with it in the logo of the restaurant. As you can see in the image below, the "&" character becomes thinner and fatter smoothly.  
   
@@ -697,16 +712,6 @@ Intro
 </details> -->
 
 
-## To do
-* Dark theme -- FIXED
-* Waiter asking if you would like the menu back -- FIXED
-* Change animation of dropping the paper. Needs checkbox! -- FIXED
-* Menu's need to be more interesting. Maybe pin and change animation abit? -- DONE
-* Blockquotes styling -- DONE
-* Link atributes to menu headings to you can tab through? -- DONE
-* Focus within to change the menu item? -- DONE
-* update readme
-
 ## Resources
 [selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)  
 [Roboto variable font](https://codepen.io/electricgarden/pen/PooLxGJ)  
@@ -720,3 +725,14 @@ Intro
 [Grid first item on 1 row but responsive](https://stackoverflow.com/questions/50447477/how-do-i-make-the-first-grid-item-span-100)  
 [Resource pin](https://codepen.io/scottkellum/pen/eaXJJb)  
 [dark mode](https://charlesrt.uk/blog/the-dark-web-rises/)  
+
+
+## To do
+* Dark theme -- FIXED
+* Waiter asking if you would like the menu back -- FIXED
+* Change animation of dropping the paper. Needs checkbox! -- FIXED
+* Menu's need to be more interesting. Maybe pin and change animation abit? -- DONE
+* Blockquotes styling -- DONE
+* Link atributes to menu headings to you can tab through? -- DONE
+* Focus within to change the menu item? -- DONE
+* update readme DONE

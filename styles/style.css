@@ -27,10 +27,12 @@
     --gray: #ebebeb;
     --black: #333333;
     --midgray: #666666;
+    --accessibility: coral;
     /* --border-width: calc(5% - 10px); */
 
     --font-heading: 'IBM Plex Sans Roman', Times;
     --font-body: 'Catamaran', sans-serif;
+    --font-special: 'Times New Roman', Times, serif;
 }
 
 h1,
@@ -49,15 +51,46 @@ html {
 }
 
 
-a:first-child {
-    background-color: var(--green);
+
+/* ACCESSIBILITY  */
+
+body>a:first-child {
+    background-color: var(--accessibility);
     text-decoration: underline;
     padding: 1rem 4rem 1rem 1rem;
     color: var(--white);
+    outline: none;
 
 }
 
-/* ACCESSIBILITY  */
+/* STYLING LINKS WITH FOCUS  */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:focus {
+    outline: var(--accessibility) dashed;
+    padding: 0 1rem;
+}
+
+/* STYLING DISHES TAB-ORDER IN MENU CARD  */
+article a:focus {
+    outline: none;
+    padding: 0;
+}
+
+article:focus-within {
+    /* background: var(--green); */
+    background: var(--accessibility);
+}
+
+article:focus-within h3,
+article:focus-within p {
+    color: white;
+}
+
+/* Styling quick skip button to sweets  */
 .hidden,
 [href="#sweets"] {
     clip: rect(0 0 0 0);
@@ -103,7 +136,6 @@ body>header {
     /* RESOURCE https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135 */
     width: min(60rem, 90%);
     height: 80vh;
-    /* background-color: coral; */
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -115,11 +147,14 @@ body>header {
 body>header>div {
     position: absolute;
     z-index: -1;
-    width: 100vw;
-    height: 80vh;
-    clip-path: polygon(50% 0%, 38% 14%, 21% 0%, 1% 14%, 0% 27%, 22% 30%, 33% 42%, 44% 39%, 46% 21%, 61% 14%, 74% 30%, 71% 48%, 50% 57%, 31% 53%, 15% 51%, 6% 65%, 19% 85%, 36% 74%, 57% 67%, 76% 56%, 88% 28%, 88% 8%, 96% 26%, 92% 58%, 87% 76%, 71% 94%, 49% 93%, 37% 82%);
+    width: min(55%, 30rem);
+    height: 40vh;
+    margin-left: -14%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     background-color: transparant;
 }
+
+/* RESOURCE: Clippath maker: https://bennettfeely.com/clippy/  */
 
 body>header p {
     width: 100%;
@@ -289,13 +324,7 @@ input[type=checkbox]:checked~div:nth-of-type(2) {
     opacity: 1;
     transition: opacity .5s ease-in;
     transition-delay: 5s;
-    /* transition: z-index 5s ease-in; */
     z-index: 10;
-}
-
-input[type=checkbox]:checked~main>div {
-    /* z-index: 7; */
-    background: coral;
 }
 
 /* checked  appear waiter*/
@@ -394,6 +423,17 @@ section header {
     margin-bottom: 1rem;
     grid-column: 1 / -1;
     /* Resource - responsive but keep the first item on 1 row: https://stackoverflow.com/questions/50447477/how-do-i-make-the-first-grid-item-span-100  */
+}
+
+/* MENU BLOCK QUOTES  */
+blockquote {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+    text-align: center;
+}
+
+cite {
+    font-family: var(--font-special);
 }
 
 /* MENU HEADER EXPLAINING THE HEADER EXAMPLE; SMALL DISHES  */
@@ -567,7 +607,7 @@ section article:nth-child(even) div::after {
     }
 
 
-    a:first-child {
+    body>a:first-child {
         --white: #fff;
         background-color: var(--white);
         color: var(--green);

@@ -21,7 +21,7 @@ For this assignment we got to choose between a restaurant menu html file or a pa
 * Responsive without media queries
 * Completely accessible according to the AAA WCAG terms
 
-## Voortgang
+## Progress
 ### Inpsiration
 Before starting, I browsed around looking for inspiration.  
 In some images I found a menu on a clipboard, en though it be fun to try to create something like a flip board. Because it is in a way pretty old-school to use a clip-board menu but there lots of possibilities to make this lay-out work and fun in a digital environment.
@@ -101,6 +101,15 @@ In the thema session about accesssibility I learned of the 'skip to content' but
 
  ```CSS
 /* ACCESSIBILITY  */
+body>a:first-child {
+    background-color: var(--accessibility);
+    text-decoration: underline;
+    padding: 1rem 4rem 1rem 1rem;
+    color: var(--white);
+    outline: none;
+
+}
+
 .hidden,
 [href="#sweets"] {
     clip: rect(0 0 0 0);
@@ -137,6 +146,57 @@ In the thema session about accesssibility I learned of the 'skip to content' but
 /* END ACCESSIBILITY  */
  ```
 </details>
+
+#### Accessibility continued
+To be able to walk through the menu card without a mouse I added links to the headings. This way you can tab through the menu cards dishes. The elements change on tabbing because I used the `focus-within` pseudo class. Also I use a certain color now to highlight everything done for accessibility. This way the user easily notices where he is on the page and what is changed by, for example, tabbing.  
+  
+-- image --  
+  
+<details>
+  <summary>More accessibility in CSS code</summary>
+
+```HTML
+<article id="smokedFish">
+    <h3><a href="#smokedFish">smoked fish</a></h3>
+    <p><em>Serves 3 - 4 people</em> with cream cheese, onion, tomato, capers &amp; new potato salad and Russ &amp; daughters bread basket</p>
+    <div>60</div>
+</article>
+```
+
+ ```CSS
+/* ACCESSIBILITY  */
+
+/* STYLING LINKS WITH FOCUS  */
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: auto;
+}
+
+a:focus {
+    outline: var(--accessibility) dashed;
+    padding: 0 1rem;
+}
+
+/* STYLING DISHES TAB-ORDER IN MENU CARD  */
+article a:focus {
+    outline: none;
+    padding: 0;
+}
+
+article:focus-within {
+    /* background: var(--green); */
+    background: var(--accessibility);
+}
+
+article:focus-within h3,
+article:focus-within p {
+    color: white;
+}
+/* END ACCESSIBILITY  */
+ ```
+</details>
+
 
 #### Animation - part 1
 When hovering over the clip from the clipboard, you loose your menu card. Woops! 
@@ -187,6 +247,119 @@ In an animation the paper slides off-screen. This is the first part of the anima
         transform: translateY(0);
     }
 }
+ ```
+</details>
+
+
+#### Animation - part 2
+Instead of hovering, I changed the clip to a checkbox.   
+Once you click the clip, you loose your menu!   
+But what now..? After about 10 seconds a waiter appears to ask if you lost your menu. You can ask him for a new one. If you do this, a new menu will appear.
+  
+-- image --   
+  
+
+<details>
+  <summary>Falling paper animation in CSS code</summary>
+
+```HTML
+    <!-- Loose the menu  -->
+    <div>
+        <label for="menuCard" class="clip"></label>
+    </div>
+    <input type="checkbox" id="menuCard" name="menucard">
+
+    <!-- Retrieve the menu  -->
+    <div>
+        <p><span>👨🏻‍🍳</span></p>
+        <p>Lost your menu?</p>
+        <label for="menuCard">Yes, I would like a new one please.</label>
+    </div>
+
+```
+
+ ```CSS
+/* DROPPING PAPER ANIMATION  */
+input[type=checkbox]:checked~main>div {
+    transform: translateY(calc(100% + 10em));
+    transition: transform .4s cubic-bezier(1, -0.11, .87, .73);
+    transition-delay: 1s;
+
+}
+
+input[type=checkbox]:not(:checked)~main>div {
+    transform: translateY(calc(0));
+    transition: transform .4s cubic-bezier(1, -0.11, .43, 1.21);
+    transition-delay: 1.5s;
+}
+
+input[type=checkbox] {
+    opacity: 0;
+}
+
+/* WAITER ASKING MENU CARD  */
+/* 👨🏻‍🍳  */
+body>div:nth-of-type(2) {
+    width: 15em;
+    height: 10em;
+    position: absolute;
+    top: calc(50% + 90vh);
+    left: calc(50% - 7.5em);
+    margin: 0 auto;
+    z-index: 7;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    transition-delay: .5s;
+}
+
+/* CHECKBOX UNCHECKED, WAITER RUNS TO GET MENU  */
+body>div:nth-of-type(2) span {
+    display: block;
+    font-size: 3em;
+    transform: translateX(70vw);
+    transition: transform 1.5s cubic-bezier(.12, -0.46, .43, 1.41);
+    transition-delay: .5s;
+}
+
+body>div:nth-of-type(2) label {
+    margin: 1rem;
+    padding: 1rem;
+    background: var(--green);
+    border-radius: .5rem;
+    color: var(--white);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.57);
+    transition: all .5s ease-in-out;
+}
+
+body>div:nth-of-type(2) label:hover {
+    background: var(--white);
+    color: var(--green);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.57);
+    transition: all .5s ease-in-out;
+}
+
+input[type=checkbox]:checked~div:nth-of-type(2) {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+    transition-delay: 5s;
+    z-index: 10;
+}
+
+/* checked  appear waiter*/
+input[type=checkbox]:checked~div:nth-of-type(2) span {
+    transform: translateX(0);
+    transition: transform 1.5s cubic-bezier(.12, -0.46, .43, 1.41);
+    transition-delay: 5s;
+}
+
  ```
 </details>
 
@@ -373,8 +546,8 @@ section header {
 * Dark theme -- FIXED
 * Waiter asking if you would like the menu back -- FIXED
 * Change animation of dropping the paper. Needs checkbox! -- FIXED
-* Menu's need to be more interesting. Maybe pin and change animation abit? -- partly fixed
-* Blockquotes styling
-* Link atributes to menu headings to you can tab through?
-* Focus within to change the menu item?
+* Menu's need to be more interesting. Maybe pin and change animation abit? -- DONE
+* Blockquotes styling -- DONE
+* Link atributes to menu headings to you can tab through? -- DONE
+* Focus within to change the menu item? -- DONE
 * update readme

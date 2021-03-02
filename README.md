@@ -150,7 +150,7 @@ body>a:first-child {
 #### Accessibility continued
 To be able to walk through the menu card without a mouse I added links to the headings. This way you can tab through the menu cards dishes. The elements change on tabbing because I used the `focus-within` pseudo class. Also I use a certain color now to highlight everything done for accessibility. This way the user easily notices where he is on the page and what is changed by, for example, tabbing.  
   
--- image --  
+![CSS_WCAG2](https://user-images.githubusercontent.com/55492381/109667996-01674c80-7b71-11eb-9f5c-ff4d6cd75b36.gif)  
   
 <details>
   <summary>More accessibility in CSS code</summary>
@@ -256,7 +256,7 @@ Instead of hovering, I changed the clip to a checkbox.
 Once you click the clip, you loose your menu!   
 But what now..? After about 10 seconds a waiter appears to ask if you lost your menu. You can ask him for a new one. If you do this, a new menu will appear.
   
--- image --   
+![CSS_Animation2](https://user-images.githubusercontent.com/55492381/109667973-fc0a0200-7b70-11eb-8780-e28bfd4651a8.gif)  
   
 
 <details>
@@ -366,7 +366,7 @@ input[type=checkbox]:checked~div:nth-of-type(2) span {
 #### Wiggle on hover
 At the end of the week, I added some simple interaction to the menu's. This is what it looks like. But have in mind, this still needs an update to make it more exciting.  
   
--- iamge --  
+![CSS_Wiggle](https://user-images.githubusercontent.com/55492381/109668001-03311000-7b71-11eb-97b4-b8837f29bae3.gif)  
    
 
 <details>
@@ -546,7 +546,7 @@ section header {
 #### Darkmode
 This website also changes to darker colors incase someone prefers the darkmode. For the most part of the website I only had to change the custom properties to darker colors. But on some points I had to manually change some colors around.  
   
--- image --  
+![CSS_Darkmode](https://user-images.githubusercontent.com/55492381/109667993-00ceb600-7b71-11eb-8891-afccbd095b41.gif)  
   
 
 <details>
@@ -628,9 +628,9 @@ This website also changes to darker colors incase someone prefers the darkmode. 
 </details>
 
 #### Animated gradient backgrounds
-To spice things up abit, I used some gradient backgrounds that change over time.  
+To spice things up abit, I used some gradient backgrounds that change over time. In the example below you will see the triangle gradient change over time.  
   
-  -- image  
+![CSS_Gradient](https://user-images.githubusercontent.com/55492381/109667994-00ceb600-7b71-11eb-8c2e-65f7b5ebcfb3.gif)
 
 
 <details>

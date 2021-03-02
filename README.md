@@ -363,10 +363,11 @@ input[type=checkbox]:checked~div:nth-of-type(2) span {
  ```
 </details>
 
-#### Some other interaction
+#### Wiggle on hover
 At the end of the week, I added some simple interaction to the menu's. This is what it looks like. But have in mind, this still needs an update to make it more exciting.  
   
-![CSS_Hover-effects](https://user-images.githubusercontent.com/55492381/108344362-57d1a400-71dd-11eb-8ee9-76c67e35556c.gif)  
+-- iamge --  
+   
 
 <details>
   <summary>Some other interactions in css code</summary>
@@ -537,6 +538,155 @@ section header {
     margin-bottom: 1rem;
     grid-column: 1 / -1;
 }
+
+ ```
+</details>
+
+
+#### Darkmode
+This website also changes to darker colors incase someone prefers the darkmode. For the most part of the website I only had to change the custom properties to darker colors. But on some points I had to manually change some colors around.  
+  
+-- image --  
+  
+
+<details>
+  <summary>Darkmode css code</summary>
+
+
+ ```CSS
+/* DARK MODE  */
+@media screen and (prefers-color-scheme: dark) {
+
+    /* BACKGROUND TO DARK LOGO TO LIGHT  */
+
+    :root {
+        --white: #333333;
+        --black: #fff;
+        --gray: black;
+    }
+
+    html {
+        background: var(--white);
+    }
+
+    body>header p {
+        --white: #fff;
+        --black: #333333;
+        color: var(--white);
+        background-color: var(--black);
+        border: 1px solid var(--white);
+    }
+
+
+    body>a:first-child {
+        --white: #fff;
+        background-color: var(--white);
+        color: var(--green);
+    }
+
+    body>div:nth-of-type(2) label:hover {
+        color: var(--black);
+    }
+
+    em {
+        color: var(--green);
+        background: var(--black);
+    }
+
+    main>div,
+    main>div::-webkit-scrollbar,
+    section,
+    article {
+        background: var(--midgray);
+    }
+
+    h2,
+    article h3 {
+        --white: #fff;
+        color: var(--white);
+    }
+
+    body>header>div {
+        background-color: var(--green);
+        background: linear-gradient(97deg, rgba(146, 255, 201, 1) 0%, rgba(24, 145, 0, 1) 100%);
+        background-size: 200% 200%;
+        background-position: left bottom;
+
+        animation-name: background-animation;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+    }
+
+    article::before {
+        --black: #333333;
+        --midgray: black;
+    }
+}
+ ```
+</details>
+
+#### Animated gradient backgrounds
+To spice things up abit, I used some gradient backgrounds that change over time.  
+  
+  -- image  
+  
+
+<details>
+  <summary>Animated gradient background css code</summary>
+
+  ```CSS
+html {
+    ...
+    background: var(--white);
+    background: linear-gradient(220deg, rgba(255, 255, 255, 1) 0%, rgba(219, 255, 212, 1) 100%);
+
+    background-size: 200% 200%;
+    background-position: left bottom;
+
+    animation-name: background-animation;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+body>header>div {
+    background-color: var(--green);
+    background: linear-gradient(97deg, rgba(146, 255, 201, 1) 0%, rgba(24, 145, 0, 1) 100%);
+    background-size: 200% 200%;
+    background-position: left bottom;
+
+    animation-name: background-animation;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    }
+
+@keyframes background-animation {
+    0%,
+    100% {
+        background-position: left bottom;
+    }
+
+    50% {
+        background-position: right top;
+    }
+}
+ ```
+</details>
+
+#### Title
+Intro
+
+<details>
+  <summary>css code</summary>
+
+```HTML
+
+```
+
+ ```CSS
 
  ```
 </details>

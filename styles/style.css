@@ -22,13 +22,13 @@
 
 
 :root {
-    --green: #189100;
+    --green: #008000;
     --white: #fff;
     --gray: #ebebeb;
     --black: #333333;
     --midgray: #666666;
-    --accessibility: #DC2A2A;
-    /* --border-width: calc(5% - 10px); */
+    --accessibility: #d43900;
+    --accessibilityGradient: linear-gradient(40deg, rgba(177, 16, 48, 1) 0%, rgba(212, 57, 0, 1) 100%);
 
     --font-heading: 'IBM Plex Sans Roman', Times;
     --font-body: 'Catamaran', sans-serif;
@@ -47,13 +47,9 @@ html {
     color: var(--black);
     font-family: var(--font-body);
     font-weight: 100;
+
     background: var(--white);
     background: linear-gradient(220deg, rgba(255, 255, 255, 1) 0%, rgba(219, 255, 212, 1) 100%);
-
-
-    /* width: 100vw; */
-    /* height: 100vh; */
-
     background-size: 200% 200%;
     background-position: left bottom;
 
@@ -95,8 +91,8 @@ article a:focus {
 }
 
 article:focus-within {
-    /* background: var(--green); */
     background: var(--accessibility);
+    background: var(--accessibilityGradient);
 }
 
 article:focus-within h3,

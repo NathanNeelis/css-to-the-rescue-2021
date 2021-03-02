@@ -152,7 +152,8 @@ To be able to walk through the menu card without a mouse I added links to the he
   
 ![CSS_WCAG2](https://user-images.githubusercontent.com/55492381/109667996-01674c80-7b71-11eb-9f5c-ff4d6cd75b36.gif)  
 
-Lighthouse check  
+**Lighthouse check**  
+  
 ![LighthouseCheck](https://user-images.githubusercontent.com/55492381/109671253-345f0f80-7b74-11eb-8428-4caec0e7388d.png)
 
   

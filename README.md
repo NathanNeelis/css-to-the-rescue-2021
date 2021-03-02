@@ -631,7 +631,7 @@ This website also changes to darker colors incase someone prefers the darkmode. 
 To spice things up abit, I used some gradient backgrounds that change over time.  
   
   -- image  
-  
+
 
 <details>
   <summary>Animated gradient background css code</summary>
@@ -676,7 +676,7 @@ body>header>div {
  ```
 </details>
 
-#### Title
+<!-- #### Title
 Intro
 
 <details>
@@ -689,7 +689,7 @@ Intro
  ```CSS
 
  ```
-</details>
+</details> -->
 
 
 ## To do

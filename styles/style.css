@@ -293,14 +293,7 @@ body>div:nth-of-type(2) {
 body>div:nth-of-type(2) span {
     display: block;
     font-size: 3em;
-    width: 2rem;
-    height: 2rem;
-    transform: translateX(70vw);
-    transition: transform 1.5s cubic-bezier(.12, -0.46, .43, 1.41);
-    transition-delay: .5s;
-    position: absolute;
-    top: -25%;
-    left: calc(50% - 1rem);
+    opacity: 0;
 }
 
 body>div:nth-of-type(2) label {
@@ -329,9 +322,21 @@ input[type=checkbox]:checked~div:nth-of-type(2) {
 
 /* checked  appear waiter*/
 input[type=checkbox]:checked~div:nth-of-type(2) span {
-    transform: translateX(0);
-    transition: transform 1.5s cubic-bezier(.12, -0.46, .43, 1.41);
-    transition-delay: 5s;
+    animation-name: come;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.12, -0.46, .43, 1.41);
+    animation-fill-mode: backwards;
+    opacity: 1;
+    animation-delay: 5s;
+}
+
+/* unchecked  waiter runs away*/
+input[type=checkbox]:not(:checked)~div:nth-of-type(2) span {
+    animation-name: run;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.12, -0.46, .43, 1.41);
 }
 
 /*  CLIPPER  */
@@ -572,6 +577,39 @@ section article:nth-child(even) div::after {
 
 
 /* _____________________  ANIMATIONS  _____________________ */
+
+@keyframes come {
+    0% {
+        transform: translateX(70vw);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes run {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateX(70vw);
+    }
+
+    100% {
+
+        opacity: 0;
+    }
+}
 
 @keyframes breathe {
     0% {

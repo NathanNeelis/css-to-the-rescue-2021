@@ -151,6 +151,10 @@ body>a:first-child {
 To be able to walk through the menu card without a mouse I added links to the headings. This way you can tab through the menu cards dishes. The elements change on tabbing because I used the `focus-within` pseudo class. Also I use a certain color now to highlight everything done for accessibility. This way the user easily notices where he is on the page and what is changed by, for example, tabbing.  
   
 ![CSS_WCAG2](https://user-images.githubusercontent.com/55492381/109667996-01674c80-7b71-11eb-9f5c-ff4d6cd75b36.gif)  
+
+Lighthouse check  
+![LighthouseCheck](https://user-images.githubusercontent.com/55492381/109671253-345f0f80-7b74-11eb-8428-4caec0e7388d.png)
+
   
 <details>
   <summary>More accessibility in CSS code</summary>

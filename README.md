@@ -701,3 +701,17 @@ Intro
 * Link atributes to menu headings to you can tab through? -- DONE
 * Focus within to change the menu item? -- DONE
 * update readme
+
+## Resources
+[selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)  
+[Roboto variable font](https://codepen.io/electricgarden/pen/PooLxGJ)  
+[First child](https://stackoverflow.com/questions/12080101/css-bodyfirst-child/12080135)  
+[clippath maker](https://bennettfeely.com/clippy/)  
+[IBM Variable font](https://css-irl.info/variable-font-animation-with-css-and-splitting-js/)  
+[Chrome blurry text error](https://stackoverflow.com/questions/32034574/font-looks-blurry-after-translate-in-chrome)  
+[Cubic brezier](https://cubic-bezier.com/#1,-0.11,.43,1.21)  
+[Checkbox unchecked in css](https://stackoverflow.com/questions/19684204/uncheck-checkbox-css3-animation/19684432)  
+[checkbox checked](https://css-tricks.com/almanac/selectors/c/checked/)  
+[Grid first item on 1 row but responsive](https://stackoverflow.com/questions/50447477/how-do-i-make-the-first-grid-item-span-100)  
+[Resource pin](https://codepen.io/scottkellum/pen/eaXJJb)  
+[dark mode](https://charlesrt.uk/blog/the-dark-web-rises/)  

@@ -48,6 +48,19 @@ html {
     font-family: var(--font-body);
     font-weight: 100;
     background: var(--white);
+    background: linear-gradient(220deg, rgba(255, 255, 255, 1) 0%, rgba(219, 255, 212, 1) 100%);
+
+
+    /* width: 100vw; */
+    /* height: 100vh; */
+
+    background-size: 200% 200%;
+    background-position: left bottom;
+
+    animation-name: background-animation;
+    animation-duration: 16s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 
@@ -67,6 +80,7 @@ body>a:first-child {
 a {
     text-decoration: none;
     color: inherit;
+    cursor: auto;
 }
 
 a:focus {
@@ -146,7 +160,6 @@ body>header {
 
 body>header>div {
     position: absolute;
-    z-index: -1;
     width: min(55%, 30rem);
     height: 40vh;
     margin-left: -14%;
@@ -278,8 +291,6 @@ body>div:nth-of-type(2) {
     margin: 0 auto;
     z-index: 7;
 
-    /* background: yellow; */
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -288,7 +299,6 @@ body>div:nth-of-type(2) {
 
     text-align: center;
     opacity: 0;
-    /* display: none; */
     transition: opacity 1s ease-out;
     transition-delay: .5s;
 }
@@ -297,9 +307,14 @@ body>div:nth-of-type(2) {
 body>div:nth-of-type(2) span {
     display: block;
     font-size: 3em;
+    width: 2rem;
+    height: 2rem;
     transform: translateX(70vw);
     transition: transform 1.5s cubic-bezier(.12, -0.46, .43, 1.41);
     transition-delay: .5s;
+    position: absolute;
+    top: -25%;
+    left: calc(50% - 1rem);
 }
 
 body>div:nth-of-type(2) label {
@@ -320,7 +335,6 @@ body>div:nth-of-type(2) label:hover {
 }
 
 input[type=checkbox]:checked~div:nth-of-type(2) {
-    display: flex;
     opacity: 1;
     transition: opacity .5s ease-in;
     transition-delay: 5s;
@@ -464,6 +478,34 @@ article:hover {
     animation-timing-function: cubic-bezier(0.250, 0.460, 0.455, 1.310);
 }
 
+
+/* PIN  */
+article::before {
+    content: '';
+    display: block;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+    background-color: rgb(180, 8, 0);
+    background: radial-gradient(at 60% 30%, rgba(255, 255, 255, 1) 0%, rgba(255, 0, 0, 1) 20%, rgba(180, 9, 0, 1) 100%);
+    position: absolute;
+    top: calc(0%);
+    left: calc(50% - .4rem);
+    transform: scale(.8);
+
+}
+
+article:nth-child(odd)::before {
+    box-shadow: -2.5px 8px 1.5px -4.5px var(--midgray), 0px 2px 8px -1px var(--black);
+}
+
+article:nth-child(even)::before {
+    box-shadow: 2.5px 8px 1.5px -4.5px var(--midgray), 0px 2px 8px -1px var(--black);
+}
+
+/* RESOURCE PIN: https://codepen.io/scottkellum/pen/eaXJJb  */
+
+
 /* MENU DISH HEADER  */
 article h3 {
     color: var(--green);
@@ -475,6 +517,17 @@ article p {
     padding: .5rem 1rem 2rem 1rem;
     font-size: 1.1rem;
     line-height: 1.5rem;
+}
+
+em {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: .5rem;
+    border-radius: .4rem;
+    padding: .3rem;
+    color: var(--green);
+    background: var(--gray);
 }
 
 /* PRICING  */
@@ -512,6 +565,12 @@ article div::after {
 }
 
 article div:hover::after {
+    background-color: transparent;
+    content: "";
+    transition: .5s;
+}
+
+article:focus-within div::after {
     background-color: transparent;
     content: "";
     transition: .5s;
@@ -574,13 +633,15 @@ section article:nth-child(even) div::after {
     }
 }
 
-@keyframes falldown {
-    0% {
-        transform: translateY(0);
+@keyframes background-animation {
+
+    0%,
+    100% {
+        background-position: left bottom;
     }
 
-    100% {
-        transform: translateY(calc(100% + 10em));
+    50% {
+        background-position: right top;
     }
 }
 
@@ -597,6 +658,9 @@ section article:nth-child(even) div::after {
         --gray: black;
     }
 
+    html {
+        background: var(--white);
+    }
 
     body>header p {
         --white: #fff;
@@ -611,6 +675,15 @@ section article:nth-child(even) div::after {
         --white: #fff;
         background-color: var(--white);
         color: var(--green);
+    }
+
+    body>div:nth-of-type(2) label:hover {
+        color: var(--black);
+    }
+
+    em {
+        color: var(--green);
+        background: var(--black);
     }
 
     main>div,
@@ -628,7 +701,23 @@ section article:nth-child(even) div::after {
 
     body>header>div {
         background-color: var(--green);
+        background: linear-gradient(97deg, rgba(146, 255, 201, 1) 0%, rgba(24, 145, 0, 1) 100%);
+        background-size: 200% 200%;
+        background-position: left bottom;
+
+        animation-name: background-animation;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+    }
+
+    article::before {
+        --black: #333333;
+        --midgray: black;
     }
 }
+
+
 
 /* Resource https://charlesrt.uk/blog/the-dark-web-rises/  */
